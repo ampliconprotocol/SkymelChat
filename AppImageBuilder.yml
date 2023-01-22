@@ -1,0 +1,78 @@
+version: 1
+script:
+  - rm -rf AppDir | true
+  - mkdir -p AppDir/usr
+  # - apt update
+  # - apt install -y python3.8
+  # - python3.8 -m pip install scikit-build --ignore-installed --prefix=/usr --root=AppDir
+  # - python3.8 -m pip install cmake --ignore-installed --prefix=/usr --root=AppDir
+  # - python3.8 -m pip install PyQt6 numpy opencv-python qimage2ndarray python-i18n rpyc --ignore-installed --prefix=/usr --root=AppDir
+
+  - python3.8 -m pip install --ignore-installed --prefix=/usr --root=AppDir -r requirements.txt
+  - python3.8 setup.py install --prefix=/usr --root=AppDir
+
+AppDir:
+  path: ./AppDir
+
+  app_info:
+    id: com.skymel
+    name: SkymelChat
+    icon: com.skymel
+    version: 21.09.01.01
+    exec: usr/bin/python3.8
+    exec_args: "$APPDIR/usr/bin/skymelchat $@"
+    # exec_args: "$@"
+
+  apt:
+    arch: amd64
+    sources:
+      - sourceline: 'deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse'
+        key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3b4fe6acc0b21f32'
+      - sourceline: 'deb https://ppa.launchpadcontent.net/beineri/opt-qt-5.15.0-focal/ubuntu focal main'
+        key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC65D51784EDC19A871DBDBB710C56D0DE9977759'
+
+    include:
+      - python3
+      - python3-pkg-resources
+      - qt515base
+      - libfreetype6
+      - libfontconfig1
+    exclude: []
+
+  runtime:
+    env:
+      QTDIR: '${APPDIR}/opt/qt515:${QTDIR}'
+      LD_LIBRARY_PATH: '${APPDIR}/opt/qt515/lib/x86_64-linux-gnu:${APPDIR}/opt/qt515/lib:${LD_LIBRARY_PATH}'
+      PKG_CONFIG_PATH: '${APPDIR}/opt/qt515/lib/pkgconfig:${PKG_CONFIG_PATH}'
+      PATH: '${APPDIR}/usr/bin:${APPDIR}/opt/qt515/bin:${PATH}'
+      PYTHONHOME: '${APPDIR}/usr'
+      PYTHONPATH: '${APPDIR}/usr/lib/python3.8/site-packages'
+      GDK_BACKEND: x11
+
+  test:
+    fedora:
+      image: appimagecrafters/tests-env:fedora-30
+      command: ./AppRun
+      use_host_x: true
+    debian:
+      image: appimagecrafters/tests-env:debian-stable
+      command: ./AppRun
+      use_host_x: true
+    arch:
+      image: appimagecrafters/tests-env:archlinux-latest
+      command: ./AppRun
+      use_host_x: true
+    centos:
+      image: appimagecrafters/tests-env:centos-7
+      command: ./AppRun
+      use_host_x: true
+    ubuntu:
+      image: appimagecrafters/tests-env:ubuntu-xenial
+      command: ./AppRun
+      use_host_x: true
+
+
+AppImage:
+  update-information: 'gh-releases-zsync|AppImageCrafters|python-appimage-example|latest|python-appimage-*x86_64.AppImage.zsync'
+  sign-key: None
+  arch: x86_64

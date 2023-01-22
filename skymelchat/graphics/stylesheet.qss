@@ -1,0 +1,213 @@
+QWidget {
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-weight: 500;
+}
+
+QLineEdit,
+QLabel,
+QPlainTextEdit {
+    color: black;
+}
+
+QLineEdit::disabled,
+QLabel::disabled,
+QPlainTextEdit::disabled {
+    color: #D8D8D8;
+}
+
+QLineEdit,
+QPushButton,
+QPlainTextEdit,
+QListWidget::item {
+    padding: 10px;
+    border-radius: 5px;
+    outline: 0;
+}
+
+QLineEdit,
+QPlainTextEdit {
+    border: 1px solid silver;
+    background-color: white;
+}
+
+QMenu {
+    background-color: white;
+    border: 1px solid silver;
+}
+
+QMenu::item {
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+}
+
+QMenu::item:selected,
+QListWidget::item:selected,
+QPushButton {
+    border: 1px solid #ffa011;
+    background-color: #ffa011;
+    color: white;
+}
+
+QPushButton {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+QPushButton::hover {
+    background-color: white;
+    color: #ffa011;
+}
+
+QPushButton::disabled {
+    border: 1px solid #e0e2e4;
+    background-color: #e0e2e4;
+    color: white;
+}
+
+QPushButton[class=secondary] {
+    border: 1px solid #4e4e4e;
+    background-color: #4e4e4e;
+}
+
+QPushButton[class=secondary]::hover {
+    background-color: white;
+    color: #4e4e4e;
+}
+
+QListWidget {
+    background-color: white;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+}
+
+QListWidget::item {
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #4e4e4e;
+}
+
+QProgressBar {
+    background-color: silver;
+    border-radius: 5px;
+    outline: 0;
+    color: white;
+}
+
+QProgressBar::chunk {
+    background-color: #00b29d;
+    border-radius: 5px;
+}
+
+QScrollBar:vertical,
+QScrollBar:horizontal {
+    border: none;
+    background: transparent;
+    margin: 0;
+    outline: 0;
+}
+
+QScrollBar::handle:horizontal,
+QScrollBar::handle:vertical {
+    border-radius: 6px;
+    border: 1px solid #809E9E9E;
+    background-color: #804F4F4F;
+}
+
+QScrollBar::handle:horizontal,
+QScrollBar:horizontal {
+    height: 12px;
+}
+
+QScrollBar::handle:vertical,
+QScrollBar:vertical {
+    width: 12px;
+}
+
+QScrollBar::handle:horizontal:hover,
+QScrollBar::handle:vertical:hover {
+    border: 1px solid #9E9E9E;
+    background-color: #4F4F4F;
+}
+
+QScrollBar::handle:horizontal:pressed,
+QScrollBar::handle:vertical:pressed {
+    border: 1px solid #E59E9E9E;
+    background-color: #E54F4F4F;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:horizontal,
+QScrollBar::sub-line:vertical {
+      border: none;
+      background: none;
+}
+
+#main_widget {
+    background-color: white;
+}
+
+#home_screen_logo_line {
+    border-bottom: 2px solid silver;
+}
+
+#home_screen_logo {
+    padding: 20px;
+}
+
+#home_screen_select_wallet_label {
+    padding: 10px;
+}
+
+#home_screen_wallets_list_bottom_line_add_button,
+#home_screen_wallets_list_bottom_line_remove_button,
+#chat_screen_list_frame_conversations_bottom_line_remove_button,
+#chat_screen_list_frame_conversations_bottom_line_add_button {
+    padding: 0 10px;
+}
+
+#chat_screen_list_frame {
+    background-color: #f0f0f0;
+    border-right: 2px solid silver;
+}
+
+#chat_screen_list_frame_avatar_line_icon {
+    border-radius: 64px;
+}
+
+#chat_screen_list_frame_avatar_line_name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#chat_screen_list_frame_conversations_list {
+    background-color: #7fffffff;
+    border: 0;
+    margin: 2px;
+}
+
+#chat_screen_list_frame_conversations_list::item {
+    height: 48px;
+}
+
+#chat_screen_list_frame_conversations_loading_message {
+    font-weight: 300;
+    color: #474747;
+}
+
+#chat_screen_conversation_frame_select_chat_alert {
+    font-weight: 300;
+    color: #474747;
+}
+
+#chat_screen_conversation_frame_sending_message_progressbar_label {
+    color: silver;
+    font-size: 10px;
+}
+#chat_screen_conversation_frame_sending_message_progressbar {
+    margin: 0 10px;
+    background-color: #F5F5F5;
+}
