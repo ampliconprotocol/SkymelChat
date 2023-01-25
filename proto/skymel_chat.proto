@@ -1,0 +1,40 @@
+syntax = "proto3";
+package node;
+
+// Meta-data and identifying information associated with a chat contact.
+// NextId: 6
+message Contact{
+  // A display-name (nick-name) chosen by the user for this particular chat contact. This may not be unique.
+  string display_name = 1;
+  // A wallet-id (a hexadecimal string) which uniquely identifies this contact. For example:
+  // 0x6a6c5B4bDC82D43Cd0BbFacE05b9070d4ddCEe86
+  string wallet_id = 2;
+  // The display image associated with this contact. Usually a 32 px x 32 px thumbnail.
+  string display_image_url = 3;
+  // The timestamp when the contact was added by the user.
+  uint64 contact_added_utc_timestamp_nanosec = 4;
+  // The timestamp when a successful interaction took place with the contact (either contact was sent a message, or the
+  // contact sent a message, etc.)
+  uint64 last_successful_interation_utc_timestamp_nanosec = 5;
+  // Whether the contact is allowed to send messages to the user, and receive messages from the user. If set to true,
+  // the incoming messages from the contact are discarded and no outgoing messages are sent.
+  bool is_blocked = 6;
+}
+
+// The list of contacts (and associated metadata) and current user's information that can be used to populate and render
+// the contacts list panel for the chat app.
+// NextId: 4
+message ContactsListAndUserInfo{
+  // The current user's information. The following fields are supposed to be empty :
+  // contact_added_utc_timestamp_microsec, last_successful_interation_utc_timestamp_microsec, is_blocked.
+  Contact user_info = 1;
+  // A list of contacts.
+  repeated Contact contacts = 2;
+  // The timestamp when the ContactsList proto was generated. This information can be used to refresh/regenerate the
+  // list.
+  uint64 contact_list_generated_utc_timestamp_nanosec = 3;
+}
+
+message StoredData{
+  ContactsListAndUserInfo contacts_list_and_user_info = 1;
+}
