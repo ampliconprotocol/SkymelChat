@@ -1,0 +1,19 @@
+{
+    "language_name": "English (EUA)",
+    "home_screen.select_wallet": "Select the wallet",
+    "home_screen.add_wallet": "Add a new wallet",
+    "home_screen.cancel": "Cancel",
+    "home_screen.confirm": "Confirm",
+    "chat_screen.loading_message": "Loading conversations...",
+    "chat_screen.select_chat_alert": "Select a wallet to start the chat",
+    "chat_screen.send_button": "Send",
+    "chat_screen.connecting_message": "Establishing session with contact...",
+    "chat_screen.sending_message_ready": "Ready to send",
+    "chat_screen.sending_message_error": "Error. Please try again.",
+    "chat_screen.sending_message": "Finding a route to contact...",
+    "chat_screen.add_wallet_nickname": "Nickname of the contact",
+    "chat_screen.add_wallet_contact": "Wallet of the contact",
+    "chat_screen.remove_action": "Remove",
+    "chat_screen.block_action": "Block",
+    "chat_screen.message_action": "Message"
+}
